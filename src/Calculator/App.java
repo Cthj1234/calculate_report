@@ -1,5 +1,6 @@
 package Calculator;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -9,8 +10,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         int index = 0;
 
-        /* 연산의 결과를 배열에 저장합니다. */
-        int[] answer = new int[10];
+        ArrayList<Integer> list = new ArrayList<>();
 
         while(true){
             int firstNum, secondNum;
@@ -44,21 +44,17 @@ public class App {
                         result = firstNum / secondNum;
                     }catch (Exception e){
                         System.out.println("나누는 숫자로 0을 입력하였습니다.");
+                        continue;
                     }
 
             }
             System.out.println("결과: " + result);
 
-
-            /* index를 증가 시킵니다. */
-            if(index < 10) answer[index++] = result;
-            else{
-                for (int i = 0; i < 9; i++) {
-                    int tmp = answer[i + 1];
-                    answer[i] = tmp;
-                }
-                answer[9] = result;
-            }
+            /* 배열에서 컬렉션으로 변경됨으로써 변경해야하는 부분 구현 */
+            list.add(result);
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            if(Objects.equals(sc.next(), "remove")) list.remove(0);
+            /* 위 요구사항에 맞게 구현 */
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */

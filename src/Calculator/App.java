@@ -28,7 +28,7 @@ public class App {
             try{
                 result = calculator.calculate(firstNum, secondNum, operator);
             }catch (Exception e){
-                if(e instanceof NotCorrectOperatorException) System.out.println(e.getMessage());
+                System.out.println(e.getMessage());
                 continue;
             }
 

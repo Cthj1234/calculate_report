@@ -9,15 +9,14 @@ public abstract class Calculator {
     protected ArrayList<Integer> list = new ArrayList<>();
     protected ArrayList<Double> circle_list = new ArrayList<>();
 
-    /* 연산 결과를 저장하는 컬렉션 타입 필드가 생성자를 통해 초기화 되도록 변경 */
 
+    /* 연산 결과를 저장하는 컬렉션 타입 필드가 생성자를 통해 초기화 되도록 변경 */
     /* 생성자 구현 */
     public Calculator() {
         this.list = new ArrayList<>();
         this.circle_list = new ArrayList<>();
     }
 
-    
     // calculate 추상 메소드 구현
     abstract double calculate();
     abstract double calculate(int firstNum, int secondNum, char operator);

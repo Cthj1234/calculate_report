@@ -6,22 +6,23 @@ public class ArithmeticCalculator extends Calculator {
     double calculate() {
         return 0;
     }
-    
-    //오버로딩을 통한 사칙연산
+
+
     double calculate(int firstNum, int secondNum, char operator) {
         switch (operator) {
             case ('+'):
-                return firstNum + secondNum;
+                return new AddOperator().operate(firstNum, secondNum);
             case ('-'):
-                return firstNum - secondNum;
+                return new SubtractOperator().operate(firstNum, secondNum);
             case ('*'):
-                return firstNum * secondNum;
+                return new MultiplyOperator().operate(firstNum, secondNum);
             case ('/'):
                 if (secondNum == 0) throw new DevideZeroException();
-                return firstNum / secondNum;
+                return new DivideOperator().operate(firstNum, secondNum);
             default:
                 throw new NotCorrectOperatorException();
         }
+
     }
 
     @Override

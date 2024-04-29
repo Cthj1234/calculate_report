@@ -27,6 +27,10 @@ public abstract class Calculator {
         this.list.remove(0);
     }
 
+    public void circle_removeResult(){
+        this.circle_list.remove(0);
+    }
+
     //결과 값 조회하는 메소드
     public void inquiryResults() {
         for (int num : this.list) {

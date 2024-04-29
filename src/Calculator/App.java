@@ -26,8 +26,10 @@ public class App {
                 circle_result = circle_Calculator.calculateCircleArea(sc.nextInt());
                 circle_Calculator.setCircle_list(circle_result);
 
+                System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+                if(Objects.equals(sc.next(), "remove")) circle_Calculator.circle_removeResult();
+
                 System.out.println("원의 넓이를 조회하시겠습니까? (inquiry 입력 시 조회)");
-                /* 위 요구사항에 맞게 구현 */
                 if(Objects.equals(sc.next(), "inquiry")) circle_Calculator.circle_inquiryResults();
             }
             // 사칙연산 일 경우

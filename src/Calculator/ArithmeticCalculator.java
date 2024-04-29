@@ -19,6 +19,9 @@ public class ArithmeticCalculator extends Calculator {
             case ('/'):
                 if (secondNum == 0) throw new DevideZeroException();
                 return new DivideOperator().operate(firstNum, secondNum);
+            case ('%'):
+                if(secondNum == 0) throw new DevideZeroException();
+                return new ModOperator().operate(firstNum, secondNum);
             default:
                 throw new NotCorrectOperatorException();
         }

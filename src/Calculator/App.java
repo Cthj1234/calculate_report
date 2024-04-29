@@ -53,8 +53,14 @@ public class App {
             /* 배열에서 컬렉션으로 변경됨으로써 변경해야하는 부분 구현 */
             list.add(result);
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            if(Objects.equals(sc.next(), "remove")) list.remove(0);
             /* 위 요구사항에 맞게 구현 */
+            if(Objects.equals(sc.next(), "remove")) list.remove(0);
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            /* 위 요구사항에 맞게 구현 */
+            if(Objects.equals(sc.next(), "inquiry")){
+                for(int answer : list) System.out.println(answer);
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */

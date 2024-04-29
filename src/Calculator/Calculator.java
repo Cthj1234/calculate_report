@@ -30,6 +30,13 @@ public class Calculator {
     public void removeResult() {
         this.list.remove(0);
     }
+    
+    //결과 값 조회하는 메소드
+    public void inquiryResults() {
+        for (int num : this.list) {
+            System.out.println(num);
+        }
+    }
 
     public ArrayList<Integer> getList() {
         return this.list;

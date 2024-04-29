@@ -2,11 +2,12 @@ package Calculator;
 
 import java.util.ArrayList;
 
-public class Calculator {
-    //원의 넓이를 구할 때 사용되는 상수 pi를 static final로 사용하였습니다.
-    static final double pi = 3.14;
-    private ArrayList<Integer> list = new ArrayList<>();
-    private ArrayList<Double> circle_list = new ArrayList<>();
+
+public abstract class Calculator {
+    //접근 제어자 변경
+    protected static final double pi = 3.14;
+    protected ArrayList<Integer> list = new ArrayList<>();
+    protected ArrayList<Double> circle_list = new ArrayList<>();
 
     /* 연산 결과를 저장하는 컬렉션 타입 필드가 생성자를 통해 초기화 되도록 변경 */
 
@@ -16,23 +17,11 @@ public class Calculator {
         this.circle_list = new ArrayList<>();
     }
 
-    public int calculate(int firstNum, int secondNum, char operator) {
-        switch (operator) {
-            case ('+'):
-                return firstNum + secondNum;
-            case ('-'):
-                return firstNum - secondNum;
-            case ('*'):
-                return firstNum * secondNum;
-            case ('/'):
-                if (secondNum == 0) throw new DevideZeroException();
-                int result = firstNum / secondNum;
-                return result;
-
-            default:
-                throw new NotCorrectOperatorException();
-        }
-    }
+    
+    // calculate 추상 메소드 구현
+    abstract double calculate();
+    abstract double calculate(int firstNum, int secondNum, char operator);
+    abstract double calculate(int r);
 
     //첫번째 값 삭제하는 메소드 추가
     public void removeResult() {
@@ -74,4 +63,5 @@ public class Calculator {
             System.out.println(num);
         }
     }
+
 }

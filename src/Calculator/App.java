@@ -7,7 +7,8 @@ public class App {
     public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
-        Calculator calculator = new Calculator();
+        Calculator calculator = new ArithmeticCalculator();
+        Calculator circle_Calculator = new CircleCalculator();
 
         while(true){
             int firstNum, secondNum;
@@ -22,12 +23,12 @@ public class App {
             int tmp = sc.nextInt();
             if (tmp == 1) {
                 System.out.println("반지름의 길이를 입력하세요: ");
-                circle_result = calculator.calculateCircleArea(sc.nextInt());
-                calculator.setCircle_list(circle_result);
+                circle_result = circle_Calculator.calculateCircleArea(sc.nextInt());
+                circle_Calculator.setCircle_list(circle_result);
 
                 System.out.println("원의 넓이를 조회하시겠습니까? (inquiry 입력 시 조회)");
                 /* 위 요구사항에 맞게 구현 */
-                if(Objects.equals(sc.next(), "inquiry")) calculator.circle_inquiryResults();
+                if(Objects.equals(sc.next(), "inquiry")) circle_Calculator.circle_inquiryResults();
             }
             // 사칙연산 일 경우
             else if (tmp == 2) {
@@ -43,7 +44,7 @@ public class App {
                 operator = sc.next().charAt(0);
 
                 try{
-                    result = calculator.calculate(firstNum, secondNum, operator);
+                    result = (int)calculator.calculate(firstNum, secondNum, operator);
                 }catch (Exception e){
                     System.out.println(e.getMessage());
                     continue;

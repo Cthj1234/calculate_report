@@ -3,13 +3,17 @@ package Calculator;
 import java.util.ArrayList;
 
 public class Calculator {
+    //원의 넓이를 구할 때 사용되는 상수 pi를 static final로 사용하였습니다.
+    static final double pi = 3.14;
     private ArrayList<Integer> list = new ArrayList<>();
+    private ArrayList<Double> circle_list = new ArrayList<>();
 
-    //2-6 생성자 메소드(list 초기화) 구현
     /* 연산 결과를 저장하는 컬렉션 타입 필드가 생성자를 통해 초기화 되도록 변경 */
+
     /* 생성자 구현 */
     public Calculator() {
         this.list = new ArrayList<>();
+        this.circle_list = new ArrayList<>();
     }
 
     public int calculate(int firstNum, int secondNum, char operator) {
@@ -48,5 +52,26 @@ public class Calculator {
 
     public void setList(int add_Number) {
         this.list.add(add_Number);
+    }
+
+    /* 원의 넓이를 구하는 메서드 선언*/
+    public double calculateCircleArea(int r) {
+        /* 원의 넓이 계산 구현 */
+        return r * r * pi;
+    }
+    /* 원의 넓이 저장 필드 Getter, Setter, 조회 메서드 구현 */
+
+    public ArrayList<Double> getCircle_list() {
+        return circle_list;
+    }
+
+    public void setCircle_list(double add_number) {
+        this.circle_list.add(add_number);
+    }
+
+    public void circle_inquiryResults() {
+        for (double num : this.circle_list) {
+            System.out.println(num);
+        }
     }
 }

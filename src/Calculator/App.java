@@ -9,6 +9,9 @@ public class App {
         Scanner sc = new Scanner(System.in);
         int index = 0;
 
+        /* 연산의 결과를 배열에 저장합니다. */
+        int[] answer = new int[10];
+
         while(true){
             int firstNum, secondNum;
             char operator = ' ';
@@ -47,8 +50,6 @@ public class App {
             System.out.println("결과: " + result);
 
 
-            /* 연산의 결과를 배열에 저장합니다. */
-            int[] answer = new int[10];
             /* index를 증가 시킵니다. */
             if(index < 10) answer[index++] = result;
             else{

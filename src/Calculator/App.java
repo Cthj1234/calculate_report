@@ -1,16 +1,13 @@
 package Calculator;
 
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Scanner;
 
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args){
 
         Scanner sc = new Scanner(System.in);
-        int index = 0;
-
-        ArrayList<Integer> list = new ArrayList<>();
+        Calculator calculator = new Calculator();
 
         while(true){
             int firstNum, secondNum;
@@ -28,41 +25,22 @@ public class App {
             operator = sc.next().charAt(0);
 
             int result = 0;
-            /* 제어문을 활용하여 위 요구사항을 만족할 수 있게 구현합니다.*/
-            switch (operator){
-                case('+'):
-                    result = firstNum + secondNum;
-                    break;
-                case('-'):
-                    result = firstNum - secondNum;
-                    break;
-                case('*'):
-                    result = firstNum * secondNum;
-                    break;
-                case('/'):
-                    try{
-                        result = firstNum / secondNum;
-                    }catch (Exception e){
-                        System.out.println("나누는 숫자로 0을 입력하였습니다.");
-                        continue;
-                    }
-                    break;
-                default:
-                    System.out.println("올바른 사칙연산 기호를 입력해주세요.");
-                    continue;
+            try{
+                result = calculator.calculate(firstNum, secondNum, operator);
+            }catch (Exception e){
+                if(e instanceof NotCorrectOperatorException) System.out.println(e.getMessage());
+                continue;
             }
-            System.out.println("결과: " + result);
+            calculator.list.add(result);
 
-            /* 배열에서 컬렉션으로 변경됨으로써 변경해야하는 부분 구현 */
-            list.add(result);
+
+            // =============기존 코드===========
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            /* 위 요구사항에 맞게 구현 */
-            if(Objects.equals(sc.next(), "remove")) list.remove(0);
+            if(Objects.equals(sc.next(), "remove")) calculator.list.remove(0);
 
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-            /* 위 요구사항에 맞게 구현 */
             if(Objects.equals(sc.next(), "inquiry")){
-                for(int answer : list) System.out.println(answer);
+                for(int answer : calculator.list) System.out.println(answer);
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");

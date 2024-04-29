@@ -34,6 +34,20 @@ public class App {
 
             calculator.setList(result);
 
+
+
+            // =======기존 코드========
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            /* 위 요구사항에 맞게 구현 */
+            if(Objects.equals(sc.next(), "remove")) calculator.removeResult();
+
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            /* 위 요구사항에 맞게 구현 */
+            if(Objects.equals(sc.next(), "inquiry")){
+                for(int answer : calculator.getList()) System.out.println(answer);
+            }
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */
             if(Objects.equals(sc.next(), "exit")) break;

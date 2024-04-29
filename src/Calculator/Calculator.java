@@ -26,6 +26,11 @@ public class Calculator {
         }
     }
 
+    //첫번째 값 삭제하는 메소드 추가
+    public void removeResult() {
+        this.list.remove(0);
+    }
+
     public ArrayList<Integer> getList() {
         return this.list;
     }

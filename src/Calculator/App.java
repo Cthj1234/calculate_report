@@ -46,7 +46,10 @@ public class App {
                         System.out.println("나누는 숫자로 0을 입력하였습니다.");
                         continue;
                     }
-
+                    break;
+                default:
+                    System.out.println("올바른 사칙연산 기호를 입력해주세요.");
+                    continue;
             }
             System.out.println("결과: " + result);
 

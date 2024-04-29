@@ -3,7 +3,7 @@ package Calculator;
 import java.util.ArrayList;
 
 public class Calculator {
-    public  ArrayList<Integer> list = new ArrayList<>();
+    private ArrayList<Integer> list = new ArrayList<>();
 
     public int calculate (int firstNum, int secondNum, char operator) {
         switch (operator) {
@@ -24,5 +24,13 @@ public class Calculator {
             default:
                 throw new NotCorrectOperatorException();
         }
+    }
+
+    public ArrayList<Integer> getList() {
+        return this.list;
+    }
+
+    public void setList(int add_Number) {
+        this.list.add(add_Number);
     }
 }

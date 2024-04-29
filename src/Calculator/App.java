@@ -31,17 +31,8 @@ public class App {
                 if(e instanceof NotCorrectOperatorException) System.out.println(e.getMessage());
                 continue;
             }
-            calculator.list.add(result);
 
-
-            // =============기존 코드===========
-            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            if(Objects.equals(sc.next(), "remove")) calculator.list.remove(0);
-
-            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
-            if(Objects.equals(sc.next(), "inquiry")){
-                for(int answer : calculator.list) System.out.println(answer);
-            }
+            calculator.setList(result);
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */

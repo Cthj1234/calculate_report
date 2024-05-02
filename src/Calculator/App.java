@@ -66,6 +66,12 @@ public class App {
             }
             // =======기존 코드========
 
+            System.out.println("저장된 연산결과 중 입력 값 보다 큰 것을 조회 하시겠습니까?(원하시면 yes 입력)");
+            if(Objects.equals(sc.next(),"yes")){
+                double tmp_Num = sc.nextDouble();
+                arithmeticCalculator.searchUpperFindNum(tmp_Num);
+            }
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             /* exit을 입력 받으면 반복 종료 */
             if(Objects.equals(sc.next(), "exit")) break;

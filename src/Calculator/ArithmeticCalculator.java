@@ -14,6 +14,7 @@ public class ArithmeticCalculator <T extends Number> extends Calculator {
         this.type = type;
     }
 
+
     public T calculate(T firstNum, T secondNum, char operator) {
         OperatorType operatorType = OperatorType.fromOperator(operator);
         switch (operatorType) {
@@ -38,5 +39,12 @@ public class ArithmeticCalculator <T extends Number> extends Calculator {
     @Override
     double calculate(int r) {
         return 0;
+    }
+
+    // 람다식 활용 (3-3 마지막)하여 입력값보다 큰 값들 조회하는 메소드
+    public void searchUpperFindNum(double tmpNum) {
+                super.getList().stream()
+                        .filter(result -> (double)result > tmpNum)
+                        .forEach(result -> System.out.println(tmpNum + "을 초과하는 값 : " + result));
     }
 }

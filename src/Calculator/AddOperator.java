@@ -1,6 +1,6 @@
 package Calculator;
 
-public class AddOperator<T extends Number> implements Operator<T>{
+public class AddOperator<T extends Number> implements Operator<T> {
 
 
     public final Class<T> type;
@@ -8,6 +8,7 @@ public class AddOperator<T extends Number> implements Operator<T>{
     public AddOperator(Class<T> type) {
         this.type = type;
     }
+
     @Override
     public T operate(T firstNum, T secondNum) {
         double result = firstNum.doubleValue() + secondNum.doubleValue();

@@ -1,6 +1,6 @@
 package Calculator;
 
-public class SubtractOperator<T extends Number> implements Operator<T>{
+public class SubtractOperator<T extends Number> implements Operator<T> {
 
     public final Class<T> type;
 

@@ -10,7 +10,7 @@ public class NumberConversionUtils {
             return (T) Double.valueOf(result.doubleValue());
         } else if (type == Long.class) {
             return (T) Long.valueOf(result.longValue());
-        }else{
+        } else {
             throw new IllegalArgumentException("지원하지 않는 타입입니다." + type);
         }
     }

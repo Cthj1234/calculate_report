@@ -1,6 +1,6 @@
 package Calculator;
 
-public class DivideOperator <T extends Number> implements Operator<T> {
+public class DivideOperator<T extends Number> implements Operator<T> {
 
     public final Class<T> type;
 

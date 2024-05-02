@@ -1,6 +1,6 @@
 package Calculator;
 
-public class ModOperator<T extends Number> implements Operator<T>{
+public class ModOperator<T extends Number> implements Operator<T> {
 
     public final Class<T> type;
 

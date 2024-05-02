@@ -1,15 +1,11 @@
 package Calculator;
 
-public class CircleCalculator extends Calculator{
+public class CircleCalculator extends Calculator {
 
-    @Override
-    double calculate() {
-        return 0;
-    }
-
+    private static final double PI = 3.14;
 
     @Override
     double calculate(int r) {
-        return r *r * pi;
+        return r * r * PI;
     }
 }

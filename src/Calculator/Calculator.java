@@ -5,9 +5,8 @@ import java.util.ArrayList;
 
 public abstract class Calculator<T extends Number> {
     //접근 제어자 변경
-    protected static final double pi = 3.14;
-    protected ArrayList<T> list = new ArrayList<>();
-    protected ArrayList<Double> circle_list = new ArrayList<>();
+    protected ArrayList<T> list;
+    protected ArrayList<Double> circle_list;
 
 
     /* 연산 결과를 저장하는 컬렉션 타입 필드가 생성자를 통해 초기화 되도록 변경 */
@@ -18,7 +17,6 @@ public abstract class Calculator<T extends Number> {
     }
 
     // calculate 추상 메소드 구현
-    abstract double calculate();
     // abstract int calculate(int firstNum, int secondNum, char operator);
     abstract double calculate(int r);
 
@@ -27,7 +25,7 @@ public abstract class Calculator<T extends Number> {
         this.list.remove(0);
     }
 
-    public void circle_removeResult(){
+    public void circle_removeResult() {
         this.circle_list.remove(0);
     }
 
@@ -46,11 +44,6 @@ public abstract class Calculator<T extends Number> {
         this.list.add(add_Number);
     }
 
-    /* 원의 넓이를 구하는 메서드 선언*/
-    public double calculateCircleArea(int r) {
-        /* 원의 넓이 계산 구현 */
-        return r * r * pi;
-    }
     /* 원의 넓이 저장 필드 Getter, Setter, 조회 메서드 구현 */
 
     public ArrayList<Double> getCircle_list() {

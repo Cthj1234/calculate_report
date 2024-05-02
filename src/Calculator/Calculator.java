@@ -3,10 +3,10 @@ package Calculator;
 import java.util.ArrayList;
 
 
-public abstract class Calculator {
+public abstract class Calculator<T extends Number> {
     //접근 제어자 변경
     protected static final double pi = 3.14;
-    protected ArrayList<Integer> list = new ArrayList<>();
+    protected ArrayList<T> list = new ArrayList<>();
     protected ArrayList<Double> circle_list = new ArrayList<>();
 
 
@@ -19,7 +19,7 @@ public abstract class Calculator {
 
     // calculate 추상 메소드 구현
     abstract double calculate();
-    abstract double calculate(int firstNum, int secondNum, char operator);
+    // abstract int calculate(int firstNum, int secondNum, char operator);
     abstract double calculate(int r);
 
     //첫번째 값 삭제하는 메소드 추가
@@ -33,16 +33,16 @@ public abstract class Calculator {
 
     //결과 값 조회하는 메소드
     public void inquiryResults() {
-        for (int num : this.list) {
+        for (T num : this.list) {
             System.out.println(num);
         }
     }
 
-    public ArrayList<Integer> getList() {
+    public ArrayList<T> getList() {
         return this.list;
     }
 
-    public void setList(int add_Number) {
+    public void setList(T add_Number) {
         this.list.add(add_Number);
     }
 

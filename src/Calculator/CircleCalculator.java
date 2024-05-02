@@ -7,10 +7,6 @@ public class CircleCalculator extends Calculator{
         return 0;
     }
 
-    @Override
-    double calculate(int firstNum, int secondNum, char operator) {
-        return 0;
-    }
 
     @Override
     double calculate(int r) {

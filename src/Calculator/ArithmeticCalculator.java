@@ -1,30 +1,34 @@
 package Calculator;
 
 
-public class ArithmeticCalculator extends Calculator {
+public class ArithmeticCalculator <T extends Number> extends Calculator {
 
     @Override
     double calculate() {
         return 0;
     }
 
+    private final Class<T> type;
 
-    @Override
-    double calculate(int firstNum, int secondNum, char operator) {
+    public ArithmeticCalculator(Class<T> type) {
+        this.type = type;
+    }
+
+    public T calculate(T firstNum, T secondNum, char operator) {
         OperatorType operatorType = OperatorType.fromOperator(operator);
         switch (operatorType) {
             case ADD:
-                return new AddOperator().operate(firstNum, secondNum);
+                return (T) new AddOperator(type).operate(firstNum, secondNum);
             case SUBTRACT:
-                return new SubtractOperator().operate(firstNum, secondNum);
+                return (T) new SubtractOperator(type).operate(firstNum, secondNum);
             case MULTIPLY:
-                return new MultiplyOperator().operate(firstNum, secondNum);
+                return (T) new MultiplyOperator(type).operate(firstNum, secondNum);
             case DIVIDE:
-                if (secondNum == 0) throw new DevideZeroException();
-                return new DivideOperator().operate(firstNum, secondNum);
+                if(secondNum.doubleValue() == 0) throw new DevideZeroException();
+                return (T) new DivideOperator(type).operate(firstNum, secondNum);
             case MOD:
-                if(secondNum == 0) throw new DevideZeroException();
-                return new ModOperator().operate(firstNum, secondNum);
+                if(secondNum.doubleValue() == 0) throw new DevideZeroException();
+                return (T) new ModOperator(type).operate(firstNum, secondNum);
             default:
                 throw new NotCorrectOperatorException();
         }

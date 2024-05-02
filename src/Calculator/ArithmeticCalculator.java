@@ -1,5 +1,6 @@
 package Calculator;
 
+
 public class ArithmeticCalculator extends Calculator {
 
     @Override
@@ -8,18 +9,20 @@ public class ArithmeticCalculator extends Calculator {
     }
 
 
+    @Override
     double calculate(int firstNum, int secondNum, char operator) {
-        switch (operator) {
-            case ('+'):
+        OperatorType operatorType = OperatorType.fromOperator(operator);
+        switch (operatorType) {
+            case ADD:
                 return new AddOperator().operate(firstNum, secondNum);
-            case ('-'):
+            case SUBTRACT:
                 return new SubtractOperator().operate(firstNum, secondNum);
-            case ('*'):
+            case MULTIPLY:
                 return new MultiplyOperator().operate(firstNum, secondNum);
-            case ('/'):
+            case DIVIDE:
                 if (secondNum == 0) throw new DevideZeroException();
                 return new DivideOperator().operate(firstNum, secondNum);
-            case ('%'):
+            case MOD:
                 if(secondNum == 0) throw new DevideZeroException();
                 return new ModOperator().operate(firstNum, secondNum);
             default:
